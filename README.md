@@ -2,13 +2,14 @@ REPORTE TÉCNICO
 ACTIVIDAD 4 - MEMORIAS E INSTRUCCIONES
 ARQUITECTURA DE COMPUTADORAS 
 
-INTEGRANTES:
+INTEGRANTES (EQUIPO DINAMITA):
 TORRES NAVARRO IVAN
 FERNANDO GODINEZ CISNEROS
 MIGUEL GABRIEL BIBIANO MENDOZA
 
 
-1. CONTEXTO GENERAL
+-1. CONTEXTO GENERAL
+--------------------
 
 Los cuatro códigos forman un pequeño sistema de ejecución de instrucciones sin
 reloj (puramente combinacional), construido en dos niveles:
@@ -33,7 +34,8 @@ pasa, la ROM está bien cargada y bien conectada.
 
 
 
-2. ARCHIVOS
+-2. ARCHIVOS
+------------
 
   Archivo               Módulo               Tipo
   --------------------  -------------------  ------------------------------
@@ -44,7 +46,8 @@ pasa, la ROM está bien cargada y bien conectada.
 
 
 
-3. FORMATO DE INSTRUCCIÓN 
+-3. FORMATO DE INSTRUCCIÓN 
+--------------------------
 
 El testbench de RORO arma cada instrucción como:
 
@@ -61,8 +64,8 @@ Qué significan A y B (valor inmediato, dirección de registro, etc.)
 
 
 
-4. ANÁLISIS DE CÓDIGO
-
+-4 ANÁLISIS DE CÓDIGO
+---------------------
 
 4.1 ROM_Instrucciones.v
 -----------------------
@@ -120,7 +123,7 @@ Estructura:
   - Cierre: "RORO_tb: TODOS PASS" o "RORO_tb: N FAIL"; luego $finish.
 
 
-4.4 RORO_Supreme_tb.v  (testbench del sistema completo)
+ 4.4 RORO_Supreme_tb.v  (testbench del sistema completo)
 -------------------------------------------------------
 Propósito: probar ROM + RORO integrados.
 
@@ -135,8 +138,47 @@ Diferencias con RORO_tb:
 Cualquier X en DD o ZF (por ejemplo, ROM sin cargar) hace fallar la
 comparación con ===, por lo que el testbench detecta ese error.
 
+------------------------------------------------------------------------------
+-5. RESULTADOS ESPERADOS (definidos en los testbenches)
+------------------------------------------------------------------------------
+Instrucción = {op, i, i}. Estas 16 filas valen para ambos testbenches (en
+RORO_tb se inyecta la instrucción; en RORO_Supreme_tb sale de la ROM).
+ 
+ i   op   Instrucción (bin)   Hex    DD esperado (dec)   DD (hex)    ZF
 
-5. CONCLUSIONES
+ 0    2   0010 0000 0000      200    17                  00000011    0
+ 
+ 1    2   0010 0001 0001      211    21                  00000015    0
+ 
+ 2    2   0010 0010 0010      222    35                  00000023    0
+ 
+ 3    2   0010 0011 0011      233    12                  0000000C    0
+ 
+ 4    2   0010 0100 0100      244    60                  0000003C    0
+ 
+ 5    2   0010 0101 0101      255    48                  00000030    0
+ 
+ 6    6   0110 0110 0110      666    0                   00000000    1
+ 
+ 7    6   0110 0111 0111      677    9                   00000009    0
+ 
+ 8    6   0110 1000 1000      688    51                  00000033    0
+ 
+ 9    6   0110 1001 1001      699    -41 (compl. a 2)    FFFFFFD7    0
+ 
+10    6   0110 1010 1010      6AA    97                  00000061    0
+
+11    6   0110 1011 1011      6BB    0                   00000000    1
+
+12    7   0111 1100 1100      7CC    0                   00000000    1
+
+13    7   0111 1101 1101      7DD    0                   00000000    1
+
+14    7   0111 1110 1110      7EE    1                   00000001    0
+
+15    7   0111 1111 1111      7FF    0                   00000000    1
+
+-6 CONCLUSIONES
 ------------------------------------------------------------------------------
   - Los cuatro códigos forman un sistema combinacional de dos capas: una ROM
     de 16 x 12 bits que alimenta a la unidad RORO (12 bits de entrada, 32 bits
