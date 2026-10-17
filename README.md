@@ -144,8 +144,8 @@ comparación con ===, por lo que el testbench detecta ese error.
 Instrucción = {op, i, i}. Estas 16 filas valen para ambos testbenches (en
 RORO_tb se inyecta la instrucción; en RORO_Supreme_tb sale de la ROM).
  
- |i   |op |..|Instrucción (bin)|   |Hex|   |DD esperado (dec)|   DD (hex)   | ZF|
-
+ |i   |op |  |Instrucción (bin)|   |Hex|   |DD esperado (dec)|   DD (hex)   | ZF|
+ -------------------------------------------------------------------------------
  |0   | 2 |..|0010 0000 0000|      |200|    |17              |   | 00000011 |   0|
  
  |1   | 2 |..|0010 0001 0001|      |211|    |21              |   | 00000015 |   0|
