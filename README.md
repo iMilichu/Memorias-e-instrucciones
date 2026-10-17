@@ -37,12 +37,12 @@ pasa, la ROM está bien cargada y bien conectada.
 -2. ARCHIVOS
 ------------
 
-  Archivo               Módulo               Tipo
-  --------------------  -------------------  ------------------------------
-  ROM_Instrucciones.v   ROM_Instrucciones    Diseño (memoria de solo lectura)
-  RORO_Supreme.v        RORO_Supreme         Diseño (módulo superior)
-  RORO_Supreme_tb.v     RORO_Supreme_tb      Testbench del sistema
-  RORO_tb.v             RORO_tb              Testbench de RORO solo
+ | Archivo             |  Módulo              | Tipo
+  -------------------- | -------------------  |------------------------------
+ | ROM_Instrucciones.v |  ROM_Instrucciones   | Diseño (memoria de solo lectura)
+ | RORO_Supreme.v      |  RORO_Supreme        | Diseño (módulo superior)
+ | RORO_Supreme_tb.v   |  RORO_Supreme_tb     | Testbench del sistema
+ | RORO_tb.v           |  RORO_tb             | Testbench de RORO solo
 
 
 
